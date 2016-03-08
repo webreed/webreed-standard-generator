@@ -4,6 +4,8 @@
 
 import {Environment} from "webreed-core/lib/Environment";
 
+import {StandardGenerator} from "./StandardGenerator";
+
 
 /**
  * Plugin options.
@@ -20,4 +22,7 @@ export type PluginOptions = { };
  *   Additional options for configuring the plugin instnace.
  */
 export default function (env: Environment, options?: PluginOptions): void {
+  let instance = new StandardGenerator(env);
+
+  env.generators.set("standard", instance);
 }
