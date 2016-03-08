@@ -4,9 +4,9 @@
   "description": "Standard generator plugin for webreed.",
   "main": "lib/setup.js",
   "scripts": {
-    "prepublish": "babel src --out-dir lib",
-    "devmode": "babel --watch src --out-dir lib",
-    "test": "mocha ./test/ --recursive --compilers js:babel-register"
+    "prepublish": "npm run build_cjs",
+    "build_cjs": "rm -rf lib && tsc --pretty",
+    "test": "npm run build_cjs && mocha ./test/ --recursive --compilers js:babel-register"
   },
   "author": "Rotorz Limited",
   "license": "MIT",
@@ -20,6 +20,7 @@
     "babel-register": "^6.5.2",
     "mocha": "^2.3.4",
     "mocha-testdata": "^1.1.2",
-    "should": "^8.0.2"
+    "should": "^8.0.2",
+    "typescript": "^1.8.7"
   }
 }

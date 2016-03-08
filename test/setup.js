@@ -7,7 +7,7 @@ import given from "mocha-testdata";
 import should from "should";
 
 // Project
-import setup from "../src/setup";
+import setup from "../lib/setup";
 
 
 describe("#setup(env, options)", function () {
@@ -15,11 +15,6 @@ describe("#setup(env, options)", function () {
   it("is a function", function () {
     setup
       .should.be.a.Function();
-  });
-
-  it("is named 'setup'", function () {
-    setup.name
-      .should.be.eql("setup");
   });
 
 });
