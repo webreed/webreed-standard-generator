@@ -7,18 +7,18 @@ import given from "mocha-testdata";
 import should from "should";
 
 // Project
-import webreed from "../src/setup";
+import setup from "../src/setup";
 
 
-describe("#setup(options)", function () {
+describe("#setup(env, options)", function () {
 
   it("is a function", function () {
-    webreed
+    setup
       .should.be.a.Function();
   });
 
   it("is named 'setup'", function () {
-    webreed.name
+    setup.name
       .should.be.eql("setup");
   });
 
