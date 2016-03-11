@@ -28,11 +28,11 @@ export class StandardGenerator implements Generator {
   public generate(sourceResource: Resource, context: Object): Observable<Resource> {
     let extensionChain = (sourceResource._extensionChain || sourceResource.__sourceExtensionChain || "");
 
-    return this._env.invoke("applyExtensionChainToResource", sourceResource, extensionChain)
+    return this._env.behaviors.applyExtensionChainToResource(sourceResource, extensionChain)
       .flatMap((transformedResource: Resource) => {
         let templateName = transformedResource._template;
         if (!!templateName) {
-          return this._env.invoke("applyTemplateToResource", transformedResource, templateName)
+          return this._env.behaviors.applyTemplateToResource(transformedResource, templateName)
         }
         else {
           return Observable.of(transformedResource);

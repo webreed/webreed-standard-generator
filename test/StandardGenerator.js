@@ -61,10 +61,10 @@ describe("StandardGenerator", function () {
       let sourceResource = this.env.createResource();
       let transformedResource;
 
-      this.env.behaviors.applyExtensionChainToResource = (env, resource, extensionChain) => {
+      this.env.behaviors.set("applyExtensionChainToResource", function (env, resource, extensionChain) {
         transformedResource = resource;
         return Observable.of(resource);
-      };
+      });
 
       return this.standardGenerator.generate(sourceResource, { })
         .toPromise().then(() => {
@@ -77,16 +77,17 @@ describe("StandardGenerator", function () {
       let sourceResource = this.env.createResource({ _template: "foo.nunjucks" });
       let renderedResources = [];
 
-      this.env.behaviors.applyExtensionChainToResource = (env, resource, extensionChain) =>
-        Observable.of(
+      this.env.behaviors.set("applyExtensionChainToResource", function (env, resource, extensionChain) {
+        return Observable.of(
           resource.clone({ a: 1 }),
           resource.clone({ a: 2 })
         );
+      });
 
-      this.env.behaviors.applyTemplateToResource = (env, resource, templateName) => {
+      this.env.behaviors.set("applyTemplateToResource", function (env, resource, templateName) {
         renderedResources.push(resource);
         return Observable.of(resource);
-      };
+      });
 
       return this.standardGenerator.generate(sourceResource, { })
         .toPromise().then(() => {
@@ -100,11 +101,12 @@ describe("StandardGenerator", function () {
     it("yields each rendered output when templates ARE NOT applied", function () {
       let sourceResource = this.env.createResource();
 
-      this.env.behaviors.applyExtensionChainToResource = (env, resource, extensionChain) =>
-        Observable.of(
+      this.env.behaviors.set("applyExtensionChainToResource", function (env, resource, extensionChain) {
+        return Observable.of(
           resource.clone({ a: 1 }),
           resource.clone({ a: 2 })
         );
+      });
 
       return this.standardGenerator.generate(sourceResource, { })
         .toArray().toPromise().then(outputResources => {
@@ -118,16 +120,18 @@ describe("StandardGenerator", function () {
     it("yields each rendered output when templates ARE applied", function () {
       let sourceResource = this.env.createResource({ _template: "foo.nunjucks" });
 
-      this.env.behaviors.applyExtensionChainToResource = (env, resource, extensionChain) =>
-        Observable.of(
+      this.env.behaviors.set("applyExtensionChainToResource", function (env, resource, extensionChain) {
+        return Observable.of(
           resource.clone({ a: 1 }),
           resource.clone({ a: 2 })
         );
+      });
 
-      this.env.behaviors.applyTemplateToResource = (env, resource, templateName) =>
-        Observable.of(
+      this.env.behaviors.set("applyTemplateToResource", function (env, resource, templateName) {
+        return Observable.of(
           resource.clone({ b: resource.a + 1 })
         );
+      });
 
       return this.standardGenerator.generate(sourceResource, { })
         .toArray().toPromise().then(outputResources => {
