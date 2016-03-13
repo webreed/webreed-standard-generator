@@ -2,6 +2,10 @@
   "name": "webreed-standard-generator",
   "version": "0.0.1",
   "description": "Standard generator plugin for webreed.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webreed/webreed-standard-generator"
+  },
   "main": "lib/setup.js",
   "typings": "lib/setup.d.ts",
   "scripts": {
