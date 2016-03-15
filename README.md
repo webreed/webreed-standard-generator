@@ -1,7 +1,11 @@
-# webreed-standard-generator [![Build Status](https://travis-ci.org/webreed/webreed-standard-generator.svg?branch=master)](https://travis-ci.org/webreed/webreed-standard-generator)
+# webreed-standard-generator
 
 The standard generator plugin for [webreed](https://github.com/webreed/webreed) which
 applies chained transformations and templates to source resources.
+
+[![Build Status](https://travis-ci.org/webreed/webreed-standard-generator.svg?branch=master)](https://travis-ci.org/webreed/webreed-standard-generator)
+[![Dependency Status](https://david-dm.org/webreed/webreed-standard-generator.svg)](https://david-dm.org/webreed/webreed-standard-generator)
+[![devDependency Status](https://david-dm.org/webreed/webreed-standard-generator/dev-status.svg)](https://david-dm.org/webreed/webreed-standard-generator#info=devDependencies)
 
 
 ## Contribution Agreement
