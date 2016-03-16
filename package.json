@@ -1,6 +1,6 @@
 {
   "name": "webreed-standard-generator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Standard generator plugin for webreed.",
   "repository": {
     "type": "git",
