@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 import {Environment} from "webreed-core/lib/Environment";
 import {ResourceType} from "webreed-core/lib/ResourceType";
 
-import {StandardGenerator} from "../lib/StandardGenerator";
+import {StandardGenerator} from "../../lib/StandardGenerator";
 
 
 describe("StandardGenerator", function () {

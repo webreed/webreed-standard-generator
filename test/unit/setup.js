@@ -7,8 +7,8 @@ import should from "should";
 
 import {Environment} from "webreed-core/lib/Environment";
 
-import setup from "../lib/setup";
-import {StandardGenerator} from "../lib/StandardGenerator";
+import setup from "../../lib/setup";
+import {StandardGenerator} from "../../lib/StandardGenerator";
 
 
 describe("#setup(env, options)", function () {
