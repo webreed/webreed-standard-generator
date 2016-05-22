@@ -25,7 +25,7 @@ export class StandardGenerator implements Generator {
     this._env = env;
   }
 
-  public generate(sourceResource: Resource, context: Object): Observable<Resource> {
+  public generate(sourceResource: Resource, context: any): Observable<Resource> {
     let extensionChain = (sourceResource._extensionChain || sourceResource.__sourceExtensionChain || "");
 
     return this._env.behaviors.applyExtensionChainToResource(sourceResource, extensionChain)
